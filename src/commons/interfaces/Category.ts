@@ -5,6 +5,6 @@ export interface Category {
     products: Product[]
 }
 
-interface CategoryInput {
+export interface CategoryInput {
     title: String
 } 
