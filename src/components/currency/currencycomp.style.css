@@ -3,6 +3,8 @@
     height: 40px;
     cursor: pointer;
     margin-top: 5px;
+    
+    width: 100%;
 }
 .currency_content > span {
     font-size: large;

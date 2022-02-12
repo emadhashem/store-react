@@ -9,8 +9,8 @@ const CurrencyComponent: React.FC<Currency & { onClick?: () => void }> = ({
     return (
         <Container
             onClick={handleClickedCurrency}
-            className='currency_content' flexDirction='row' jc='center' ai='center' >
-            <span style={{ marginRight: 5 }}> {symbol}</span>
+            className='currency_content' flexDirction='row' ai='center' >
+            <span style={{ marginRight: 3 }}> {symbol}</span>
             <span>{label}</span>
         </Container>
     )

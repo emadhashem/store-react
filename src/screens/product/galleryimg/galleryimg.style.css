@@ -1,0 +1,10 @@
+.galleryimg_container {
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+.galleryimg_container > img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    
+}

@@ -5,10 +5,13 @@ import CurrencyComponent from '../../currency/CurrencyComponent'
 import './productlistitem.style.css'
 import { countTheCurrency } from './productListItem.helper'
 import { useAppSelector } from '../../../redux/hooks'
+import { useProductListItemHooks } from './productListItem.hooks'
+import greencartsmall from '../../../images/greencartsmall.webp'
 const ProducListItem: React.FC<Product & { onClick: () => void }> = ({ name,
     gallery, id, inStock, prices, onClick }) => {
-    const {symbol} = useAppSelector(state => state.currency)
+    const { symbol } = useAppSelector(state => state.currency)
     const { amount, currency } = countTheCurrency(symbol, prices)!
+    const { checkInCart } = useProductListItemHooks(id!)
     return (
         <div className='productListItem_container' onClick={onClick} >
 
@@ -18,7 +21,11 @@ const ProducListItem: React.FC<Product & { onClick: () => void }> = ({ name,
                     src={(gallery ? gallery[0] : '')}
                 />
             </Container>
+            {(checkInCart()) && <Container jc='center' ai='center' className='productList__cartIcon' >
+                <img src={greencartsmall} />
+            </Container>}
             <Container className='productListItem_name'
+
                 ai='center' >
                 <p> {name}</p>
             </Container>

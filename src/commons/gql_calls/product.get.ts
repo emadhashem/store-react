@@ -4,7 +4,6 @@ import { Product } from "../interfaces/Product"
 const GET_PRODUCT_ALL = gql`
     query GetProductSAll($id : String!) {
         product(id : $id) {
-            gallery
             name 
             id 
             gallery
@@ -23,6 +22,7 @@ const GET_PRODUCT_ALL = gql`
             category
             brand
             prices {
+                amount
                 currency {
                     label
                     symbol
@@ -31,8 +31,16 @@ const GET_PRODUCT_ALL = gql`
         }
     }
 `
-export const _getProductAll = (id: string): { data: Product | undefined, 
-    error: ApolloError | undefined, loading: boolean } => {
+interface ProductAllCall {
+    data : {
+        product : Product | undefined
+    },
+    error: ApolloError | undefined, 
+    loading: boolean
+
+}
+
+export const _getProductAll = (id: string): ProductAllCall => {
     const { data, error, loading } = useQuery(GET_PRODUCT_ALL, {
         variables: {
             id

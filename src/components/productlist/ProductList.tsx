@@ -1,5 +1,5 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
+import { useHistory, } from 'react-router-dom'
 import { Product } from '../../commons/interfaces/Product'
 import { useAppSelector } from '../../redux/hooks'
 import './productlist.style.css'
@@ -11,8 +11,8 @@ const ProductList: React.FC<{ items: Product[] }> = ({ items }) => {
         <div className='list_container' >
             {
                 items.map(item => (
-                    <ProducListItem {...item} onClick={() => {
-                        go.push('/cart/:' + item.id)
+                    <ProducListItem key={item.id} {...item} onClick={() => {
+                        go.push('/product/' + item.id)
                     }}
                     />
                 ))

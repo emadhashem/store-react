@@ -34,7 +34,7 @@ function Header() {
     const {
         handleOpenDropDownCart,
         openDropDownCart,
-        setopenDropDownCart
+        setopenDropDownCart, cartLength, handleCartOverLay
     } =
         useHeaderHooks(name)
     return (
@@ -108,9 +108,10 @@ function Header() {
                 <Icon
                     optionalClassName='iconImg__active'
                     uri={cart}
-                    haveUpLeftIcon={true} size={30}
-                    content={'5'}
-                    onClick={() => { }}
+                    haveUpLeftIcon={(cartLength > 0)} 
+                    size={30}
+                    content={`${cartLength}`}
+                    onClick={handleCartOverLay}
                     haveDropDown={false}
 
                 />
