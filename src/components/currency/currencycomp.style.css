@@ -1,0 +1,10 @@
+.currency_content {
+    width: 60px;
+    height: 40px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+.currency_content > span {
+    font-size: large;
+    
+}

@@ -1,13 +1,13 @@
 import {AttributeSet} from './AttributeSet'
 import { Price } from './Price'
 export interface Product {
-    id?: String
-    name?: String
+    id?: string
+    name?: string
     inStock?: Boolean
-    gallery?: String[]
-    description?: String
-    category?: String
+    gallery?: string[]
+    description?: string
+    category?: string
     attributes?: AttributeSet[]
     prices?: Price[]
-    brand?: String
+    brand?: string
 }

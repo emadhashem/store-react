@@ -1,4 +1,4 @@
 export interface Currency {
-    label: String
-    symbol: String
+    label: string
+    symbol: string
 }
