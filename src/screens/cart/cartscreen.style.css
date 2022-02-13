@@ -1,0 +1,20 @@
+.cartscreenContainer__ {
+    width: 100%;
+    min-height: 90vh;
+    
+    margin: auto;
+}
+.cartTitle__ {
+    height: 25vh;
+    width: 100%;
+    border-bottom: solid 1px rgb(221, 215, 215);
+}
+.cartTitle__ > h1 {
+    font-weight: 700;
+}
+.cartContentItems__ {
+    width: 100%;
+    min-height: 50vh;
+    background-color: blue;
+    margin-top: 50px;
+}

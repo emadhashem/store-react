@@ -16,6 +16,7 @@ import CurrencyComponent from '../currency/CurrencyComponent'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 import { changeCategory } from '../../redux/slices/category.slice'
 import { useHistory } from 'react-router-dom'
+import BurgerComp from './Burgermenu/BurgerComp'
 
 function Header() {
 
@@ -52,6 +53,11 @@ function Header() {
 
             flexDirction='row' ai='center'
             jc='space-between' >
+            {
+                (!loadingCategories) && (
+                    <BurgerComp menuClassName = "menuContent__" items={data?.categories!} _className='burgermenuicon__' />
+                )
+            }
             {
                 (!loadingCategories) && (
                     <Container className='categorys_container'
@@ -134,7 +140,7 @@ function Header() {
                             <DropDown optinalClassName='cartOverlay__' >
                                 <Container flexDirction='column'
                                     className='dropdown__body' >
-
+                                        <p onClick={() => go.push('/cart')} >view bag</p>
                                 </Container>
                             </DropDown>
                         )

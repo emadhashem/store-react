@@ -55,6 +55,7 @@ const GET_PRODUCT_OVERLAY = gql`
             gallery
             name 
             id 
+            brand
             attributes{
                 name
                 id

@@ -13,8 +13,12 @@ const ProducListItem: React.FC<Product & { onClick: () => void }> = ({ name,
     const { amount, currency } = countTheCurrency(symbol, prices)!
     const { checkInCart } = useProductListItemHooks(id!)
     return (
-        <div className='productListItem_container' onClick={onClick} >
-
+        <div className='productListItem_container' onClick={(inStock) ? onClick : () => {}} >
+            {
+                (!inStock) && <Container jc='center' ai='center' className='outStockItem__' >
+                    <p>Out Of Stock</p>
+                </Container>
+            }
             <Container className='productListItem_img'
                 jc='center' ai='center' >
                 <img className='product__img'

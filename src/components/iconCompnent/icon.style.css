@@ -14,13 +14,13 @@
     transform: translateY(1px);
 }
 .icon__content {
-    position: absolute;
+    /* position: absolute; */
     background-color: black;
     width: 17px;
     height: 17px;
     border-radius: 50%;
     font-size: smaller;
     color: white;
-    top: 0;
-    right: -5px;
+    
+    /* right: -5px; */
 }

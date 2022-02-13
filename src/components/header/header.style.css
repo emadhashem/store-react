@@ -3,6 +3,7 @@
     margin: auto;
     
     height: 10vh;
+    
 }
 .logo__container {
     width: 50px;
@@ -36,3 +37,39 @@
     background-color: red;
 }
 
+.burgermenuicon__ {
+    display: none;
+    
+}
+.burgermenuicon__ > img {
+    width: 40px;
+    height: 40px;
+}
+
+@media only screen and (max-width: 900px) {
+    .burgermenuicon__ {
+        display: block;
+        width: 30%;
+
+    }
+    .burgermenuicon__:active > img{
+        transform: translateY(3px);
+        transition: .5s;
+    }
+    .categorys_container {
+        display: none !important;
+    }
+    .currencyswitcher__cart__icon_holder {
+        width: 30%;
+    }
+}
+.menuContent__ {
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+    position: absolute;
+    left: 0;
+    z-index: 100;
+    align-items: flex-start;
+    
+}

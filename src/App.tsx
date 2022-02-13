@@ -8,25 +8,28 @@ import Productscreen from './screens/product/Product.screen';
 import './app.style.css'
 import { useAppDispatch, useAppSelector } from './redux/hooks';
 import { toggleOverLay } from './redux/slices/cartOverLay.slice';
+import CartScreen from './screens/cart/CartScreen';
 
 function App() {
   const { openOverLay } = useAppSelector(state => state.overLay)
   const dispatch = useAppDispatch()
   return (
     <ApolloProvider client={client} >
-      <Header />
+      <Router>
+        <Header />
 
-      <div className='body__container' >
-        {(openOverLay) && <div className='modal__'
-          onClick={() => dispatch(toggleOverLay())} ></div>}
-        <Router>
+        <div className='body__container' >
+          {(openOverLay) && <div className='modal__'
+            onClick={() => dispatch(toggleOverLay())} ></div>}
+
           <Switch>
             <Route exact path={"/"} component={Home} />
             <Route exact path={"/product/:productId"} component={Productscreen} />
-            <Route exact path={"/cart"} component={() => <div>this cart</div>} />
+            <Route exact path={"/cart"} component={CartScreen} />
           </Switch>
-        </Router>
-      </div>
+
+        </div>
+      </Router>
     </ApolloProvider>
 
   );

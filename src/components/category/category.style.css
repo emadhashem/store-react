@@ -9,3 +9,12 @@
     border-bottom: solid 1px rgba(94, 206, 123, 1);
     transition: .5s;
 }
+
+@media only screen and (max-width : 900px) {
+    .category__container {
+        height: 50px;
+        margin-right: 0;
+        
+       
+    }
+}
