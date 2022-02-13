@@ -2,10 +2,11 @@ import React from 'react'
 import { Container } from '../../commons/styles/Container'
 import './dropdown.style.css'
 
-const DropDown: React.FC = ({ children }) => {
+const DropDown: React.FC<{optinalClassName? : string}> = ({ children, optinalClassName }) => {
     
     return (
-        <Container className='dropdown__content' flexDirction='column' jc='center' ai='center' >
+        <Container className={'dropdown__content ' + optinalClassName} 
+        flexDirction='column' jc='center' ai='center' >
             {children}
         </Container>
     )

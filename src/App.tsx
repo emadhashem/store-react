@@ -6,18 +6,19 @@ import Header from './components/header/Header';
 import Home from './screens/home/Home.screen';
 import Productscreen from './screens/product/Product.screen';
 import './app.style.css'
-import { useAppSelector } from './redux/hooks';
+import { useAppDispatch, useAppSelector } from './redux/hooks';
+import { toggleOverLay } from './redux/slices/cartOverLay.slice';
 
 function App() {
-  const {openOverLay} = useAppSelector(state => state.overLay)
+  const { openOverLay } = useAppSelector(state => state.overLay)
+  const dispatch = useAppDispatch()
   return (
     <ApolloProvider client={client} >
       <Header />
-      
+
       <div className='body__container' >
-      {(openOverLay) && <div className='modal__' >
-      
-      </div>}
+        {(openOverLay) && <div className='modal__'
+          onClick={() => dispatch(toggleOverLay())} ></div>}
         <Router>
           <Switch>
             <Route exact path={"/"} component={Home} />

@@ -15,6 +15,7 @@ import DropDown from '../dropdown/DropDown'
 import CurrencyComponent from '../currency/CurrencyComponent'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 import { changeCategory } from '../../redux/slices/category.slice'
+import { useHistory } from 'react-router-dom'
 
 function Header() {
 
@@ -22,7 +23,14 @@ function Header() {
     const { data: currenciesData, loading: loadingCurrencies } = _getCurrencies()
     const dispatch = useAppDispatch()
     const { id, name } = useAppSelector(state => state.categoty)
-    const {symbol} = useAppSelector(state => state.currency)
+    const { symbol } = useAppSelector(state => state.currency)
+    const go = useHistory()
+    function handlePath() {
+        if (window.location.pathname.toLowerCase().includes('product')) {
+            window.location.assign('/')
+            return
+        }
+    }
     useEffect(() => {
         dispatch(changeCategory({
             id: 0, name: data?.categories[0]?.name ?
@@ -33,10 +41,12 @@ function Header() {
 
     const {
         handleOpenDropDownCart,
-        openDropDownCart,
-        setopenDropDownCart, cartLength, handleCartOverLay
+        openDropDownCart, handleClickOnCategory,
+        setopenDropDownCart, cartLength, handleCartOverLay, openOverLay
     } =
         useHeaderHooks(name)
+    
+
     return (
         <Container className='container'
 
@@ -53,7 +63,11 @@ function Header() {
                             data?.categories.map(({ name }, idx) => (
                                 <Category key={name} title={name}
                                     active={(id === idx)}
-                                    onClick={() => dispatch(changeCategory({ id: idx, name }))}
+                                    onClick={() => {
+                                        handleClickOnCategory(idx, name)
+                                        handlePath()
+                                    }
+                                    }
                                 />
 
                             ))
@@ -108,13 +122,24 @@ function Header() {
                 <Icon
                     optionalClassName='iconImg__active'
                     uri={cart}
-                    haveUpLeftIcon={(cartLength > 0)} 
+                    haveUpLeftIcon={(cartLength > 0)}
                     size={30}
                     content={`${cartLength}`}
                     onClick={handleCartOverLay}
-                    haveDropDown={false}
+                    haveDropDown={true}
 
-                />
+                >
+                    {
+                        (openOverLay) && (
+                            <DropDown optinalClassName='cartOverlay__' >
+                                <Container flexDirction='column'
+                                    className='dropdown__body' >
+
+                                </Container>
+                            </DropDown>
+                        )
+                    }
+                </Icon>
             </Container>
         </Container>
     )
