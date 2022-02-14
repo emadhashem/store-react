@@ -6,10 +6,13 @@ const cartOverLaySlice = createSlice({
     reducers : {
         toggleOverLay : (state) => {
             state.openOverLay = !state.openOverLay
+        },
+        closeOverlay : (state) => {
+            state.openOverLay = false
         }
     }
 })
 
-export const {toggleOverLay} = cartOverLaySlice.actions
+export const {toggleOverLay, closeOverlay} = cartOverLaySlice.actions
 
 export default cartOverLaySlice.reducer

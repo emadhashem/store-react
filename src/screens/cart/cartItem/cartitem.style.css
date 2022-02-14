@@ -6,6 +6,10 @@
 .cartitem__right {
     height: 100%;
 }
+.cartitem__name:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
 .changeAmountOfCartItem__container {
     width: 30px;
     

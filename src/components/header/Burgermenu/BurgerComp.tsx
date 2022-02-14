@@ -6,14 +6,16 @@ import { useAppSelector } from '../../../redux/hooks'
 import Category from '../../category/Category'
 import { useBurgerMenuHooks } from './burgermenu.hooks'
 import useHeaderHooks from '../Header.custoemHooks'
+import { useHistory } from 'react-router-dom'
 const BurgerComp: React.FC<{ items: CategoryProps[], _className: string, menuClassName: string }> = (
     { items, _className, menuClassName }) => {
     const { handleOpenBurgerMenu, openBurger } = useBurgerMenuHooks()
     const { id, name } = useAppSelector(state => state.categoty)
     const { handleClickOnCategory } = useHeaderHooks(name)
+    const go = useHistory()
     function handlePath() {
         if (window.location.pathname.toLowerCase().includes('product')) {
-            window.location.assign('/')
+            go.push('/')
             return
         }
     }

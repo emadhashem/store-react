@@ -30,7 +30,7 @@ function Header() {
     const go = useHistory()
     function handlePath() {
         if (window.location.pathname.toLowerCase().includes('product')) {
-            window.location.assign('/')
+            go.push('/')
             return
         }
     }
