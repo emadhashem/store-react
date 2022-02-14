@@ -24,11 +24,7 @@
 .currencyswitcher__cart__icon_content {
     width: 70%;
 }
-.dropdown__body {
-    width: 200px;
-    height: 15px;
-    background-color: blue;
-}
+
 .cartOverlay__ {
     right: 0px;
 }

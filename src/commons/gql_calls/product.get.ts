@@ -32,10 +32,10 @@ const GET_PRODUCT_ALL = gql`
     }
 `
 interface ProductAllCall {
-    data : {
-        product : Product | undefined
+    data: {
+        product: Product | undefined
     },
-    error: ApolloError | undefined, 
+    error: ApolloError | undefined,
     loading: boolean
 
 }
@@ -75,10 +75,15 @@ const GET_PRODUCT_OVERLAY = gql`
         }
     }
 `
-
-export const _getProducyOvetLay = (id: string): { data: Product | undefined, 
-    error: ApolloError | undefined, loading: boolean } => {
-    const { data, error, loading } = useQuery(GET_PRODUCT_OVERLAY   , {
+interface ProducyOvetLayCall {
+    data: {
+        product: Product
+    }
+    error: ApolloError | undefined,
+    loading: boolean
+}
+export const _getProducyOvetLay = (id: string): ProducyOvetLayCall => {
+    const { data, error, loading } = useQuery(GET_PRODUCT_OVERLAY, {
         variables: {
             id
         }

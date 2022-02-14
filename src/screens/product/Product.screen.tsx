@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import { _getProductAll } from '../../commons/gql_calls/product.get'
 import { Container } from '../../commons/styles/Container'
 import { StyledBtn } from '../../commons/styles/StyledBtn'
+import AttributeSetComp from '../../components/arrtributeSet/AttributeSetComp'
 import CurrencyComponent from '../../components/currency/CurrencyComponent'
 import GalleryImgComponent from './galleryimg/GalleryImgComponent'
 import { countTheCurrency, parseString } from './productDesc.helper'
@@ -15,7 +16,7 @@ function Productscreen() {
     const { curImgGallery,
         handleClickedImg,
         setbrand, setname, name, brand, price, prices, setprices,
-        setprice, curSymbol, desc, setdesc, setproductCategory ,handleClickedCartBtn,
+        setprice, curSymbol, desc, setdesc, setproductCategory, handleClickedCartBtn,
         checkInCart
     } = useProductScreenHooks(productId)
 
@@ -26,7 +27,7 @@ function Productscreen() {
             if (productData.product?.name) setname(productData.product?.name)
             if (productData.product?.prices) setprices(productData.product?.prices)
             if (productData.product?.description) setdesc(productData.product?.description)
-            if(productData.product?.category) setproductCategory(productData.product?.category)
+            if (productData.product?.category) setproductCategory(productData.product?.category)
         }
     }, [loading])
     const curPrice = countTheCurrency(curSymbol, prices)!
@@ -72,12 +73,16 @@ function Productscreen() {
                             </Container>
                         )
                     }
-                    <Container 
-                    jc='center' ai = 'center'
-                    className='product__desc__addToCart_btn' >
-                        <StyledBtn 
-                        onClick={handleClickedCartBtn}
-                        width='100%'
+                    <AttributeSetComp hideName={false}
+                        items={productData.product?.attributes!}
+                    />
+                    
+                    <Container
+                        jc='center' ai='center'
+                        className='product__desc__addToCart_btn' >
+                        <StyledBtn
+                            onClick={handleClickedCartBtn}
+                            width='100%'
                             height='60px'
                             color='white'
                             bgClr={(checkInCart()) ? 'red' : 'rgba(94, 206, 123, 1)'}

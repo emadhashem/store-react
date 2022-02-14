@@ -1,0 +1,23 @@
+.attribute__container {
+    height: 50px;
+    min-width: 200px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.attribute__container > .attribute__name {
+    margin: 0;
+    font-size: large;
+    margin-bottom: 5px;
+}
+.value__container {
+    padding: 3px;
+    height: 30px;
+    text-transform: uppercase;
+    border: 1px black solid;
+    cursor: pointer;
+    margin-right: 5px;
+}
+.chossen {
+    background-color: black;
+    color: white;
+}

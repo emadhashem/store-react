@@ -1,7 +1,6 @@
 .cartscreenContainer__ {
     width: 100%;
     min-height: 90vh;
-    
     margin: auto;
 }
 .cartTitle__ {
@@ -15,6 +14,18 @@
 .cartContentItems__ {
     width: 100%;
     min-height: 50vh;
-    background-color: blue;
+    
     margin-top: 50px;
+}
+
+.brand__name__container > p {
+    font-size: large;
+    margin: 0;
+    margin-bottom: 10px;
+}
+.cartitem__name {
+    font-weight: 200;
+}
+.cartitem__price > p {
+    font-weight: bold;
 }

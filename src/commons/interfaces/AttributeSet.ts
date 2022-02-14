@@ -1,7 +1,7 @@
 import {Attribute} from './Attribute'
 export interface AttributeSet {
-    id: String
-    name: String
-    type: String
+    id: string
+    name: string
+    type: string
     items: Attribute[]
 }

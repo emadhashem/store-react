@@ -17,6 +17,8 @@ import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 import { changeCategory } from '../../redux/slices/category.slice'
 import { useHistory } from 'react-router-dom'
 import BurgerComp from './Burgermenu/BurgerComp'
+import { toggleOverLay } from '../../redux/slices/cartOverLay.slice'
+import CartOverlayComp from '../../screens/cart/cartOverLay/CartOverlayComp'
 
 function Header() {
 
@@ -138,10 +140,7 @@ function Header() {
                     {
                         (openOverLay) && (
                             <DropDown optinalClassName='cartOverlay__' >
-                                <Container flexDirction='column'
-                                    className='dropdown__body' >
-                                        <p onClick={() => go.push('/cart')} >view bag</p>
-                                </Container>
+                                <CartOverlayComp />
                             </DropDown>
                         )
                     }

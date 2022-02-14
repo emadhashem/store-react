@@ -17,9 +17,9 @@ function App() {
     <ApolloProvider client={client} >
       <Router>
         <Header />
-
+        
         <div className='body__container' >
-          {(openOverLay) && <div className='modal__'
+        {(openOverLay) && <div className='modal__'
             onClick={() => dispatch(toggleOverLay())} ></div>}
 
           <Switch>

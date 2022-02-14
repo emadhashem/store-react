@@ -1,0 +1,36 @@
+.overlay__container {
+    width: 400px;
+    min-height: 25vh;
+    background-color: white;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.overlay__header  {
+    width:90%;
+    margin: auto;
+}
+.overlay__footer {
+    width:90%;
+    margin: auto;
+
+}
+.footer__btn{
+    width: 45%;
+    text-align: center;
+    cursor: pointer;
+}
+.footer__btn > p {
+    width: 100%;
+}
+.viewbag {
+    border: 1px solid black;
+    
+}
+.checkout {
+    color: white;
+    background-color: rgba(94, 206, 123, 1);
+}
+.cartoverlayItems__container {
+    width: 90%;
+    margin: auto;   
+}

@@ -1,0 +1,26 @@
+.cartitem__container {
+    width: 100%;
+    min-height: 25vh;
+    margin-bottom: 50px;
+}
+.cartitem__right {
+    height: 100%;
+}
+.changeAmountOfCartItem__container {
+    width: 30px;
+    
+    margin-right: 10px;
+    height: 100%;
+}
+.change__btn {
+    width: 30px;
+    height: 30px;
+    border: 1px solid black;
+    cursor: pointer;
+}
+.change__btn:active {
+  transform: translateY(2px) ;
+}
+.changeAmountOfCartItem__container > p {
+    font-size: large;
+}

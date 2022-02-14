@@ -1,0 +1,28 @@
+.cartSlider__container {
+    width: 150px;
+    height: 100%;
+    
+    position: relative;
+}
+.cartSlider__container > img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+.cartSlider__container > span {
+    position: absolute;
+    color: white;
+    font-size: large;
+}
+.cartSlider__container > span:hover{
+    color: green;
+    cursor: pointer;
+}
+.goLeft {
+    top: 45%;
+    left: 0;
+}
+.goRight {
+    top: 45%;
+    right: 0;
+}

@@ -24,11 +24,11 @@ export const useProductScreenHooks = (id : string) => {
     }
     function handleClickedCartBtn() {
         if(checkInCart() === true) {
-            console.log('in cart', cartArr)
+            
             dispatch(removeItem(id))
         }
         else {
-            console.log('not in cart', cartArr)
+            
             dispatch(addItem({id, category : productCategory, amount : 1}))
         }
     }
