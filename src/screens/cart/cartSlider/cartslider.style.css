@@ -1,7 +1,6 @@
 .cartSlider__container {
     width: 150px;
-    height: 100%;
-    
+    height: 25vh;        
     position: relative;
 }
 .cartSlider__container > img {

@@ -40,7 +40,7 @@ const CartItemComp: React.FC<{ category: string, id: string, amount: number }> =
                 <AttributeSetComp productId={id}
                     hideName={true} />
             </Container>
-            <Container className='cartitem__right' >
+            <Container className='cartitem__right' ai='center' >
                 <Container className='changeAmountOfCartItem__container'
                     flexDirction='column' jc='space-between' ai='center'  >
                     <Container jc='center' ai='center' className='change__btn'

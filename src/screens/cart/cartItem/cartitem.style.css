@@ -18,9 +18,10 @@
 }
 .change__btn {
     width: 30px;
-    height: 30px;
+    height: 25px;
     border: 1px solid black;
     cursor: pointer;
+   margin: 15px;
 }
 .change__btn:active {
   transform: translateY(2px) ;

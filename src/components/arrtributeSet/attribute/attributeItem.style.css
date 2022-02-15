@@ -9,13 +9,21 @@
     font-size: large;
     margin-bottom: 5px;
 }
+.values__container {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(3, auto);
+  
+}
 .value__container {
+    /* width: 30px; */
     padding: 3px;
     height: 30px;
     text-transform: uppercase;
     border: 1px black solid;
     cursor: pointer;
     margin-right: 5px;
+    margin-bottom: 3px;
 }
 .chossen {
     background-color: black;

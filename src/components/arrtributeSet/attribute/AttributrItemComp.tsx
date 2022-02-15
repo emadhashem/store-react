@@ -15,19 +15,19 @@ const AttributrItemComp: React.FC<{ item: AttributeSet, hideName: boolean ,produ
                     {item.name} :
                 </p>)
             }
-            <Container className='values__container' >
+            <div className='values__container' >
                 {
                     item.items.map((ele, idx) => (
                         <Container key={ele.id}
                             onClick={() => handlechoosenvalue(idx)}
                             className={`value__container ${(checkIfIdxChoosen(idx)) && 'chossen'}`}
                             jc='center' ai='center' >
-                            <p>{ele.value}</p>
+                            <p>{ele.displayValue}</p>
                         </Container>
                     ))
                 }
 
-            </Container>
+            </div>
         </Container>
     )
 }
