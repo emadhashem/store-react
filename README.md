@@ -1,3 +1,34 @@
+# Store-react
+This e-commerce app , displaying products with currency change in product listing page, product description page, and cart page + cart overlay (in responsive pages)
+
+## ScreenShots :
+
+<img src ="./src/images/screens/1.png" />
+<img src ="./src/images/screens/2.png" />
+<img src ="./src/images/screens/3.png" />
+<img src ="./src/images/screens/4.png" />
+<img src ="./src/images/screens/5.png" />
+<img src ="./src/images/screens/6.png" />
+<br\>
+
+## Technologies
+1. React js + TypeScript
+2. GraphQL + apollo client (handleing queries)
+3. Redux Tool Kit
+4. React Router 
+6. styled-components
+7. CSS-Styleing
+
+
+
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

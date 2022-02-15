@@ -15,3 +15,4 @@ export const useProductListItemHooks = (id : string) => {
         handleRemoveFromCartIcon
     }
 }
+
