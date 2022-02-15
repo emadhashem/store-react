@@ -9,7 +9,7 @@ import CartItemComp from '../cartItem/CartItemComp'
 function CartOverlayComp() {
     const cartArr = useAppSelector(state => state.cart)
     const cartOverLayArr = getAtleasetFirst2Ele(cartArr)
-    console.log(cartOverLayArr);
+
     const go = useHistory()
     const dispatch = useAppDispatch()
     return (

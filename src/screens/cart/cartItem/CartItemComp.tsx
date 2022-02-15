@@ -15,8 +15,9 @@ const CartItemComp: React.FC<{ category: string, id: string, amount: number }> =
     }
 ) => {
     const { data, loading } = _getProducyOvetLay(id)
+    
     const globalCur = useAppSelector(state => state.currency)
-    const curCurrney = countTheCurrency(globalCur.symbol, data.product.prices)!
+    const curCurrney = countTheCurrency(globalCur.symbol, data?.product?.prices)!
     const { addOneItem, decreaseOneItem } = useCartItemHooks(amount, id)
     const go = useHistory()
     const dispatch = useAppDispatch()
@@ -36,7 +37,7 @@ const CartItemComp: React.FC<{ category: string, id: string, amount: number }> =
                 <Container flexDirction='column' className='cartitem__price' >
                     <p>{curCurrney.currency.symbol}{curCurrney.amount}</p>
                 </Container>
-                <AttributeSetComp items={data.product.attributes!}
+                <AttributeSetComp productId={id}
                     hideName={true} />
             </Container>
             <Container className='cartitem__right' >

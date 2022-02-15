@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { _getProductAll } from '../../commons/gql_calls/product.get'
+import { _getProductAll, _getProductAtrr } from '../../commons/gql_calls/product.get'
 import { Container } from '../../commons/styles/Container'
 import { StyledBtn } from '../../commons/styles/StyledBtn'
 import AttributeSetComp from '../../components/arrtributeSet/AttributeSetComp'
 import CurrencyComponent from '../../components/currency/CurrencyComponent'
+import CartSlidercomp from '../cart/cartSlider/CartSlidercomp'
 import GalleryImgComponent from './galleryimg/GalleryImgComponent'
 import { countTheCurrency, parseString } from './productDesc.helper'
 import { useProductScreenHooks } from './productscreen.hooks'
@@ -13,14 +14,16 @@ import './productscreen.style.css'
 function Productscreen() {
     const { productId } = useParams<{ productId: string }>()
     const { data: productData, loading } = _getProductAll(productId)
+    const { data: attrData } = _getProductAtrr(productId)
     const { curImgGallery,
         handleClickedImg,
         setbrand, setname, name, brand, price, prices, setprices,
         setprice, curSymbol, desc, setdesc, setproductCategory, handleClickedCartBtn,
-        checkInCart
+        checkInCart,
     } = useProductScreenHooks(productId)
 
     useEffect(() => {
+
         if (!loading) {
             if (productData.product?.gallery) handleClickedImg(productData.product?.gallery[0])
             if (productData.product?.brand) setbrand(productData.product?.brand)
@@ -36,8 +39,11 @@ function Productscreen() {
 
     return (
         <Container className='productdesc__container' jc='center' ai='center'  >
-            <Container className='product__content' flexDirction='row' jc='space-between' >
-                <Container className='product__gallrey' >
+            <div className='product__content'  >
+                <div className='other__gallery' >
+                    <CartSlidercomp imgs={productData.product?.gallery!} />
+                </div>
+                <div className='product__gallrey' >
                     <Container flexDirction='column' jc='space-between'
                         className='product__gallery__left' >
                         {
@@ -46,7 +52,6 @@ function Productscreen() {
                                     handleClickedImg(item)
                                 }}
                                     size={100}
-
                                 />
                             ))
                         }
@@ -54,7 +59,7 @@ function Productscreen() {
                     <Container className='product__gallery__right' >
                         <img src={curImgGallery} />
                     </Container>
-                </Container>
+                </div>
                 <Container className='product__desc' flexDirction='column' >
                     <Container flexDirction='column' className='desc__brand__name' >
                         <p className='desc__brand' >{brand}</p>
@@ -73,15 +78,21 @@ function Productscreen() {
                             </Container>
                         )
                     }
-                    <AttributeSetComp hideName={false}
-                        items={productData.product?.attributes!}
-                    />
-                    
+                    {
+                        (attrData) && (
+                            <AttributeSetComp hideName={false}
+                                
+                                productId={productId}
+                            />
+
+                        )
+                    }
                     <Container
                         jc='center' ai='center'
                         className='product__desc__addToCart_btn' >
                         <StyledBtn
-                            onClick={handleClickedCartBtn}
+                            onClick={
+                                () => handleClickedCartBtn(productData.product?.attributes!)}
                             width='100%'
                             height='60px'
                             color='white'
@@ -96,7 +107,7 @@ function Productscreen() {
                         <p dangerouslySetInnerHTML={{ __html: parseString(desc) }} ></p>
                     </Container>
                 </Container>
-            </Container>
+            </div>
         </Container>
     )
 }

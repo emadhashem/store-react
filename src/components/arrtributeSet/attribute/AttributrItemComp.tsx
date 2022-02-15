@@ -3,9 +3,11 @@ import { Container } from '../../../commons/styles/Container'
 import './attributeItem.style.css'
 import { AttributeSet } from '../../../commons/interfaces/AttributeSet'
 import { useAttributeHooks } from './attribute.hooks'
-const AttributrItemComp: React.FC<{ item: AttributeSet, hideName: boolean }> = ({ hideName,
-    item }) => {
-    const { curChoosenValue, handlechoosenvalue } = useAttributeHooks()
+const AttributrItemComp: React.FC<{ item: AttributeSet, hideName: boolean ,productId : string }> = ({ hideName,
+    item, productId }) => {
+    
+    const { curChoosenValue, 
+        handlechoosenvalue, checkIfIdxChoosen } = useAttributeHooks(productId, item.id)
     return (
         <Container className='attribute__container' flexDirction='column'  >
             {
@@ -18,9 +20,9 @@ const AttributrItemComp: React.FC<{ item: AttributeSet, hideName: boolean }> = (
                     item.items.map((ele, idx) => (
                         <Container key={ele.id}
                             onClick={() => handlechoosenvalue(idx)}
-                            className={`value__container ${(idx === curChoosenValue) && 'chossen'}`}
+                            className={`value__container ${(checkIfIdxChoosen(idx)) && 'chossen'}`}
                             jc='center' ai='center' >
-                            <p>{ele.displayValue}</p>
+                            <p>{ele.value}</p>
                         </Container>
                     ))
                 }

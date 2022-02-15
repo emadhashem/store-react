@@ -5,8 +5,12 @@
 .product__content {
     width: 100%;
     height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 .product__gallrey {
+    display: flex;
     width: 65%;
 }
 .product__desc {
@@ -59,4 +63,24 @@
 }
 .product__desc__text {
 
+}
+.other__gallery {
+    display: none;
+}
+@media only screen and (max-width : 950px) {
+    .product__gallrey {
+        display: none;
+        
+    }
+    .other__gallery{
+        display: flex;
+        width: 100%;
+        height: 30vh;
+        
+        margin-bottom: 10px;
+        justify-content: center;
+    }
+    .product__content {
+        flex-direction: column;
+    }
 }

@@ -3,13 +3,19 @@ import { Container } from '../../commons/styles/Container'
 import './attributeset.style.css'
 import { AttributeSet } from '../../commons/interfaces/AttributeSet'
 import AttributrItemComp from './attribute/AttributrItemComp'
-const AttributeSetComp: React.FC<{ items: AttributeSet[], hideName: boolean }> = (
-  { items, hideName }) => {
+import { _getProductAtrr } from '../../commons/gql_calls/product.get'
+const AttributeSetComp: React.FC<{ hideName: boolean, productId: string }> = (
+  {  hideName, productId }) => {
+  const { data, loading } = _getProductAtrr(productId)
+  
+  if (loading) return null
   return (
     <Container className='attributeset__container' flexDirction='column' >
       {
-        items.map(item => (
-          <AttributrItemComp item={item} hideName = {hideName} />
+        (data) && data.product.attributes!.map(item => (
+          <AttributrItemComp 
+          key={item.name}
+          productId={productId} item={item} hideName={hideName} />
         ))
       }
     </Container>

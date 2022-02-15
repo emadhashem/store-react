@@ -18,7 +18,7 @@ function CartScreen() {
             <Container className='cartContentItems__' flexDirction='column' >
                 {
                     arrFilterBy_category(cartArr, name).map(item => (
-                        <CartItemComp {...item} />
+                        <CartItemComp key={item.id} {...item} />
                     ))
                 }
             </Container>

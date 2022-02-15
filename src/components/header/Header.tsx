@@ -131,7 +131,7 @@ function Header() {
                     optionalClassName='iconImg__active'
                     uri={cart}
                     haveUpLeftIcon={(cartLength > 0)}
-                    size={30}
+                    size={35}
                     content={`${cartLength}`}
                     onClick={handleCartOverLay}
                     haveDropDown={true}
