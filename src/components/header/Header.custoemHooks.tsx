@@ -1,5 +1,4 @@
 import React, { useCallback, useState } from "react";
-import { useHistory } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { toggleOverLay } from "../../redux/slices/cartOverLay.slice";
 import { changeCategory } from "../../redux/slices/category.slice";
