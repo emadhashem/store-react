@@ -6,32 +6,33 @@ import './productlistitem.style.css'
 import { countTheCurrency } from './productListItem.helper'
 import { useAppSelector } from '../../../redux/hooks'
 import { useProductListItemHooks } from './productListItem.hooks'
-import greencartsmall from '../../../images/greencartsmall.webp'
+import removefromcart from '../../../images/removefromcart.png'
 const ProducListItem: React.FC<Product & { onClick: () => void }> = ({ name,
     gallery, id, inStock, prices, onClick }) => {
     const { symbol } = useAppSelector(state => state.currency)
     const { amount, currency } = countTheCurrency(symbol, prices)!
-    const { checkInCart } = useProductListItemHooks(id!)
+    const { checkInCart, handleRemoveFromCartIcon } = useProductListItemHooks(id!)
     return (
-        <div className='productListItem_container' onClick={(inStock) ? onClick : () => {}} >
+        <div className='productListItem_container'  >
             {
                 (!inStock) && <Container jc='center' ai='center' className='outStockItem__' >
                     <p>Out Of Stock</p>
                 </Container>
             }
             <Container className='productListItem_img'
+                onClick={(inStock) ? onClick : () => { }}
                 jc='center' ai='center' >
                 <img className='product__img'
                     src={(gallery ? gallery[0] : '')}
                 />
             </Container>
             {(checkInCart()) && <Container jc='center' ai='center' className='productList__cartIcon' >
-                <img src={greencartsmall} />
+                <img onClick={() => handleRemoveFromCartIcon(id!, name!)} src={removefromcart} />
             </Container>}
             <Container className='productListItem_name'
-
+                    onClick={(inStock) ? onClick : () => { }}
                 ai='center' >
-                <p> {name}</p>
+                <p className='productlistItem__name'  > {name}</p>
             </Container>
             <Container className='productListItem_price'
                 ai='center' >
